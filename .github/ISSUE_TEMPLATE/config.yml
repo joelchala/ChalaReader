@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: ChalaReader Source & Docs
+    url: https://github.com/joelchala/ChalaReader
+    about: Consulta la documentación y el código fuente oficial de ChalaReader.
+  - name: Suite Chala — Chalablock
+    url: https://github.com/joelchala/Chalablock
+    about: Bloqueador de anuncios de código abierto de la Suite Chala.

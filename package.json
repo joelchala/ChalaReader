@@ -1,0 +1,24 @@
+{
+  "name": "chalareader",
+  "version": "1.0.0",
+  "description": "Modo lectura limpio y privado con Shadow DOM, temas visuales, exportación a Markdown, PDF y guardado offline (Manifest V3)",
+  "type": "module",
+  "scripts": {
+    "assets": "node tools/generate-assets.mjs",
+    "build": "node tools/make-mv3.mjs",
+    "test": "node tests/verify.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joelchala/ChalaReader.git"
+  },
+  "author": "Joel Chala",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joelchala/ChalaReader/issues"
+  },
+  "homepage": "https://github.com/joelchala/ChalaReader#readme",
+  "engines": {
+    "node": ">=22"
+  }
+}

@@ -1,0 +1,147 @@
+{
+  "extName": {
+    "message": "ChalaReader",
+    "description": "Nombre de la extensión."
+  },
+  "extDescription": {
+    "message": "Modo lectura limpio y sin distracciones con temas, tipografía, exportación a Markdown, PDF y guardado offline.",
+    "description": "Descripción corta de la extensión para tiendas."
+  },
+  "actionTitle": {
+    "message": "Activar o salir del modo lectura (Alt+R)",
+    "description": "Título al pasar el cursor sobre el icono en la barra."
+  },
+  "cmdToggleReader": {
+    "message": "Alternar modo lectura en la pestaña actual",
+    "description": "Descripción del atajo de teclado Alt+R."
+  },
+  "themeDark": {
+    "message": "Oscuro Chala"
+  },
+  "themeSepia": {
+    "message": "Sepia"
+  },
+  "themeLight": {
+    "message": "Claro"
+  },
+  "themeGroupLabel": {
+    "message": "Tema visual"
+  },
+  "fontGroupLabel": {
+    "message": "Tipografía"
+  },
+  "fontSans": {
+    "message": "Sans-Serif"
+  },
+  "fontSerif": {
+    "message": "Serif"
+  },
+  "fontReadable": {
+    "message": "Alta legibilidad"
+  },
+  "fontSizeDecrease": {
+    "message": "Reducir tamaño de letra"
+  },
+  "fontSizeIncrease": {
+    "message": "Aumentar tamaño de letra"
+  },
+  "lineHeightLabel": {
+    "message": "Interlineado"
+  },
+  "columnWidthLabel": {
+    "message": "Ancho"
+  },
+  "wordsLabel": {
+    "message": "palabras"
+  },
+  "minReadLabel": {
+    "message": "min de lectura"
+  },
+  "btnExportMd": {
+    "message": "Exportar .md"
+  },
+  "btnExportMdTitle": {
+    "message": "Descargar artículo limpio en formato Markdown (.md)"
+  },
+  "btnPrintPdf": {
+    "message": "Imprimir / PDF"
+  },
+  "btnPrintPdfTitle": {
+    "message": "Imprimir o guardar como PDF sin distracciones"
+  },
+  "btnSaveLater": {
+    "message": "Guardar"
+  },
+  "btnSavedLater": {
+    "message": "Guardado"
+  },
+  "btnSaveLaterTitle": {
+    "message": "Guardar artículo localmente para leer luego"
+  },
+  "btnSavedList": {
+    "message": "Leer luego"
+  },
+  "btnSavedListTitle": {
+    "message": "Abrir lista de artículos guardados offline"
+  },
+  "btnExit": {
+    "message": "Salir"
+  },
+  "btnExitTitle": {
+    "message": "Salir del modo lectura (Esc)"
+  },
+  "savedDrawerTitle": {
+    "message": "Artículos guardados offline"
+  },
+  "savedDrawerClose": {
+    "message": "Cerrar panel"
+  },
+  "savedDrawerEmpty": {
+    "message": "Todavía no has guardado artículos. Pulsa «Guardar» para almacenar lecturas limpias en tu navegador."
+  },
+  "savedOpenInReader": {
+    "message": "Leer aquí"
+  },
+  "savedOpenOriginal": {
+    "message": "Abrir web"
+  },
+  "savedDelete": {
+    "message": "Eliminar"
+  },
+  "suiteCredit": {
+    "message": "Suite Chala — 100% local y sin telemetría"
+  },
+  "paypalDonate": {
+    "message": "Apoyar en PayPal"
+  },
+  "githubRepo": {
+    "message": "Código abierto"
+  },
+  "statusSaved": {
+    "message": "Artículo guardado en almacenamiento local."
+  },
+  "statusRemoved": {
+    "message": "Artículo eliminado de guardados."
+  },
+  "statusExportedMd": {
+    "message": "Archivo Markdown (.md) generado localmente."
+  },
+  "statusFallbackNotice": {
+    "message": "No se detectó un artículo extenso; mostrando el contenido principal disponible."
+  },
+  "originalLinkLabel": {
+    "message": "Ver página original"
+  },
+  "statusSaveError": {
+    "message": "No se pudo guardar el artículo (almacenamiento local lleno o no disponible)."
+  },
+  "mdSourceLabel": {
+    "message": "Fuente"
+  },
+  "mdAuthorLabel": {
+    "message": "Autor"
+  },
+  "untitledLabel": {
+    "message": "Sin título"
+  }
+}

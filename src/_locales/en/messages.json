@@ -1,0 +1,147 @@
+{
+  "extName": {
+    "message": "ChalaReader",
+    "description": "Extension name."
+  },
+  "extDescription": {
+    "message": "Clean, distraction-free reader mode with custom themes, typography, Markdown/PDF export, and offline saved articles.",
+    "description": "Short extension description for web stores."
+  },
+  "actionTitle": {
+    "message": "Toggle ChalaReader mode (Alt+R)",
+    "description": "Toolbar icon tooltip."
+  },
+  "cmdToggleReader": {
+    "message": "Toggle reader mode on the active tab",
+    "description": "Keyboard shortcut description for Alt+R."
+  },
+  "themeDark": {
+    "message": "Chala Dark"
+  },
+  "themeSepia": {
+    "message": "Sepia"
+  },
+  "themeLight": {
+    "message": "Light"
+  },
+  "themeGroupLabel": {
+    "message": "Visual theme"
+  },
+  "fontGroupLabel": {
+    "message": "Typography"
+  },
+  "fontSans": {
+    "message": "Sans-Serif"
+  },
+  "fontSerif": {
+    "message": "Serif"
+  },
+  "fontReadable": {
+    "message": "High Legibility"
+  },
+  "fontSizeDecrease": {
+    "message": "Decrease font size"
+  },
+  "fontSizeIncrease": {
+    "message": "Increase font size"
+  },
+  "lineHeightLabel": {
+    "message": "Line height"
+  },
+  "columnWidthLabel": {
+    "message": "Width"
+  },
+  "wordsLabel": {
+    "message": "words"
+  },
+  "minReadLabel": {
+    "message": "min read"
+  },
+  "btnExportMd": {
+    "message": "Export .md"
+  },
+  "btnExportMdTitle": {
+    "message": "Download clean article as Markdown (.md)"
+  },
+  "btnPrintPdf": {
+    "message": "Print / PDF"
+  },
+  "btnPrintPdfTitle": {
+    "message": "Print or save as PDF without distractions"
+  },
+  "btnSaveLater": {
+    "message": "Save"
+  },
+  "btnSavedLater": {
+    "message": "Saved"
+  },
+  "btnSaveLaterTitle": {
+    "message": "Save article locally to read later"
+  },
+  "btnSavedList": {
+    "message": "Read later"
+  },
+  "btnSavedListTitle": {
+    "message": "Open offline saved articles list"
+  },
+  "btnExit": {
+    "message": "Exit"
+  },
+  "btnExitTitle": {
+    "message": "Exit reader mode (Esc)"
+  },
+  "savedDrawerTitle": {
+    "message": "Saved Offline Articles"
+  },
+  "savedDrawerClose": {
+    "message": "Close panel"
+  },
+  "savedDrawerEmpty": {
+    "message": "No saved articles yet. Click \"Save\" to store clean readings locally in your browser."
+  },
+  "savedOpenInReader": {
+    "message": "Read here"
+  },
+  "savedOpenOriginal": {
+    "message": "Open web"
+  },
+  "savedDelete": {
+    "message": "Delete"
+  },
+  "suiteCredit": {
+    "message": "Suite Chala — 100% local & zero telemetry"
+  },
+  "paypalDonate": {
+    "message": "Support on PayPal"
+  },
+  "githubRepo": {
+    "message": "Open source"
+  },
+  "statusSaved": {
+    "message": "Article saved to local storage."
+  },
+  "statusRemoved": {
+    "message": "Article removed from saved list."
+  },
+  "statusExportedMd": {
+    "message": "Markdown (.md) file generated locally."
+  },
+  "statusFallbackNotice": {
+    "message": "No long-form article detected; displaying available main content."
+  },
+  "originalLinkLabel": {
+    "message": "View original page"
+  },
+  "statusSaveError": {
+    "message": "Could not save the article (local storage is full or unavailable)."
+  },
+  "mdSourceLabel": {
+    "message": "Source"
+  },
+  "mdAuthorLabel": {
+    "message": "Author"
+  },
+  "untitledLabel": {
+    "message": "Untitled"
+  }
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Documentación y página de prueba para ChalaReader (Suite Chala)." />
+  <meta name="author" content="Joel Chala" />
+  <meta property="og:site_name" content="Suite Chala" />
+  <title>ChalaReader — Documentación y artículo de prueba</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 32px 20px;
+      background: #0F172A;
+      color: #F1F5F9;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      line-height: 1.65;
+    }
+    .layout {
+      max-width: 980px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 260px;
+      gap: 24px;
+    }
+    article, aside {
+      background: #1E293B;
+      border: 1px solid rgba(6, 182, 212, 0.28);
+      border-radius: 14px;
+      padding: 26px 30px;
+    }
+    h1 { color: #10B981; margin-top: 0; }
+    h2 { color: #06B6D4; }
+    a { color: #06B6D4; }
+    code {
+      background: #0F172A;
+      padding: 2px 6px;
+      border-radius: 5px;
+      color: #10B981;
+    }
+    @media (max-width: 780px) {
+      .layout { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <article>
+      <h1>ChalaReader: Lectura limpia y privada en Manifest V3</h1>
+      <p><strong>ChalaReader</strong> forma parte de la Suite Chala junto a Chalablock, ChalaVPN, ChalaTabs y ChalaDev. Su objetivo es aislar el contenido principal de cualquier artículo web dentro de un Shadow DOM limpio y libre de rastreadores.</p>
+      <h2>Arquitectura local y permisos mínimos</h2>
+      <p>La extensión utiliza únicamente los permisos <code>activeTab</code>, <code>scripting</code> y <code>storage</code>. Al hacer clic en el icono o pulsar <code>Alt+R</code>, valida que la pestaña actual no pertenezca a una ruta interna protegida e inyecta el motor de extracción de forma idempotente.</p>
+      <blockquote>«El usuario decide cómo leer la web sin ruido visual, rastreadores ni distracciones.»</blockquote>
+      <h2>Exportación y lectura offline</h2>
+      <p>Desde la barra flotante puedes cambiar al instante entre los temas Oscuro Chala, Sepia y Claro, ajustar tipografía, ancho de columna entre 60ch y 85ch, exportar el texto limpio a Markdown (.md), imprimir un PDF limpio o guardar artículos para leer luego en almacenamiento local.</p>
+      <ul>
+        <li>Código fuente de la extensión: <code>src/</code></li>
+        <li>Compilación desempaquetada: <code>dist/build/ChalaReader.chromium/</code></li>
+        <li>Pruebas automatizadas: <code>node tests/verify.mjs</code></li>
+      </ul>
+    </article>
+    <aside class="sidebar">
+      <h3>Barra lateral de ejemplo</h3>
+      <p>Este bloque lateral actúa como elemento auxiliar que ChalaReader descarta automáticamente al activar el modo lectura con <code>Alt+R</code>.</p>
+      <p><a href="https://github.com/joelchala/ChalaReader">Repositorio en GitHub</a></p>
+    </aside>
+  </div>
+</body>
+</html>
