@@ -492,6 +492,9 @@ async function run() {
     assert.equal(firefoxManifest.version, version);
     assert.equal(firefoxManifest.browser_specific_settings?.gecko?.id, "chalareader@chaladev.site");
     assert.equal(firefoxManifest.browser_specific_settings?.gecko?.strict_min_version, "113.0");
+    assert.deepEqual(firefoxManifest.browser_specific_settings?.gecko?.data_collection_permissions, {
+      required: ["none"]
+    });
     assert.deepEqual(firefoxManifest.background?.scripts, ["background.js"]);
     assert.equal(firefoxManifest.background?.service_worker, undefined);
 
