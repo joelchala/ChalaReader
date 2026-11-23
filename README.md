@@ -5,7 +5,7 @@ ChalaReader
 </h1>
 
 <p align="center">
-Modo lectura limpio, privado y 100% offline para Chrome, Edge y otros navegadores Chromium.<br>
+Modo lectura limpio, privado y 100% offline para Google Chrome, Microsoft Edge y Mozilla Firefox.<br>
 Extracción heurística local, aislamiento en Shadow DOM, exportación a Markdown, PDF y lectura guardada sin rastreadores.
 </p>
 
@@ -15,9 +15,11 @@ Extracción heurística local, aislamiento en Shadow DOM, exportación a Markdow
 
 ChalaReader elimina anuncios, barras laterales, popups y ruido visual con un solo clic en el icono de la barra o presionando **`Alt+R`**. Funciona 100% offline con Manifest V3: sin servidores externos, sin telemetría y sin permisos invasivos (`activeTab`, `scripting` y `storage` únicamente).
 
-- **Autor y mantenimiento:** Joel Chala
+- **Sitio oficial (Suite Chala):** [chaladev.site](https://chaladev.site/)
+- **Autor y mantenimiento:** Joel Chala ([info@chaladev.site](mailto:info@chaladev.site))
 - **Licencia:** [MIT](LICENSE.txt)
-- **Privacidad:** [no recopila ningún dato](PRIVACY.md)
+- **Privacidad:** [no recopila ningún dato](PRIVACY.md) · [chaladev.site/#privacidad](https://chaladev.site/#privacidad)
+- **Tiendas:** Microsoft Edge Add-ons *(en revisión)* · Mozilla Firefox Add-ons / AMO (`chalareader`, *en revisión*) · Chrome Web Store *(pendiente de cupo)*
 
 ## Características
 
@@ -35,9 +37,8 @@ ChalaReader elimina anuncios, barras laterales, popups y ruido visual con un sol
 ## Instalación
 
 1. Descarga una versión compilada desde las [versiones publicadas](https://github.com/joelchala/ChalaReader/releases) o genera la carpeta localmente (ver más abajo).
-2. Abre `chrome://extensions` (Chrome) o `edge://extensions` (Edge).
-3. Activa el **Modo de desarrollador**.
-4. Pulsa **Cargar descomprimida** y elige la carpeta `dist/build/ChalaReader.chromium` (o `src/`).
+2. **En Google Chrome / Microsoft Edge:** abre `chrome://extensions` o `edge://extensions`, activa el **Modo de desarrollador**, pulsa **Cargar descomprimida** y elige `dist/build/ChalaReader.chromium` (o `src/`).
+3. **En Mozilla Firefox (carga temporal):** abre `about:debugging#/runtime/this-firefox`, pulsa **Cargar complemento temporal…** y selecciona `store/paquetes/ChalaReader_1.0.0.firefox.zip`.
 
 ## Compilar / Empaquetar
 
@@ -45,7 +46,8 @@ Requisitos: Node.js 22 o superior (cero dependencias externas).
 
 ```bash
 git clone https://github.com/joelchala/ChalaReader.git
-cd ChalaReader && node tools/make-mv3.mjs
+cd ChalaReader
+npm run build
 ```
 
 También puedes usar el script Bash:
@@ -60,13 +62,19 @@ Para regenerar los iconos PNG y piezas de tienda:
 node tools/generate-assets.mjs
 ```
 
-Para ejecutar todas las pruebas automatizadas:
+Para ejecutar las 8 verificaciones automatizadas (DOM + VM + manifiesto Firefox AMO):
 
 ```bash
-node tests/verify.mjs
+npm test
 ```
 
-La extensión desempaquetada queda en `dist/build/ChalaReader.chromium/` y los paquetes listos para subir a tiendas quedan en `store/paquetes/ChalaReader_1.0.0.chromium.zip` y `store/paquetes/ChalaReader_1.0.0.edge.zip` (con copia en `dist/build/`). El código fuente de la extensión está en [`src/`](src/).
+La extensión desempaquetada queda en `dist/build/ChalaReader.chromium/` y los paquetes listos para subir a tiendas quedan en `store/paquetes/` (con copia en `dist/build/`):
+
+- `ChalaReader_1.0.0.chromium.zip` — Chrome Web Store
+- `ChalaReader_1.0.0.edge.zip` — Microsoft Edge Add-ons
+- `ChalaReader_1.0.0.firefox.zip` — Mozilla Firefox Add-ons / AMO (transforma dinámicamente el manifiesto con `browser_specific_settings.gecko.id = "chalareader@chaladev.site"`, `strict_min_version: "113.0"`, `data_collection_permissions` y `background.scripts` sin duplicar `src/`)
+
+El código fuente único de la extensión está en [`src/`](src/).
 
 ## Estructura del Proyecto
 
@@ -88,7 +96,7 @@ ChalaReader/
 │   │   └── reader-theme.css      # Temas Oscuro Chala, Sepia y Claro encapsulados
 │   ├── icons/                    # Logotipo SVG e iconos PNG (16, 32, 48, 128)
 │   ├── lib/readability.js        # Motor heurístico local de extracción de artículos
-│   ├── background.js             # Service worker MV3 (toggle por clic y comando Alt+R)
+│   ├── background.js             # Service worker / background script MV3 (Alt+R y clic)
 │   ├── config.js                 # Paleta Escudo Cibernético, WPM y enlaces de la Suite Chala
 │   └── manifest.json             # Manifiesto V3 (activeTab, scripting, storage)
 ├── store/
@@ -98,9 +106,9 @@ ChalaReader/
 │   ├── promo-440x280.png         # Mosaico promocional (440×280)
 │   ├── destacada-1400x560.png    # Banner destacado (1400×560)
 │   ├── captura-*.png             # Capturas de pantalla (1280×800)
-│   └── paquetes/                 # Paquetes .zip para Chrome Web Store y Edge Add-ons
-├── tests/verify.mjs              # Suite de 8 verificaciones integrales (DOM + VM)
-└── tools/                        # Empaquetador MV3 (make-mv3.mjs) y generador de activos
+│   └── paquetes/                 # Paquetes .zip para Chrome Web Store, Edge Add-ons y Firefox AMO
+├── tests/verify.mjs              # Suite de 8 verificaciones integrales (DOM + VM + AMO ZIP)
+└── tools/                        # Empaquetador MV3 multi-tienda (make-mv3.mjs) y activos
 ```
 
 ## Apoyar el proyecto
@@ -109,7 +117,7 @@ ChalaReader es 100% gratuito y de código abierto. Si te resulta útil, puedes h
 
 ## Suite Chala y licencia
 
-ChalaReader forma parte de la **Suite Chala** de herramientas para navegador enfocadas en privacidad, rendimiento y productividad:
+**ChalaReader** forma parte de la **Suite Chala** ([chaladev.site](https://chaladev.site/)) de herramientas para navegador enfocadas en privacidad, rendimiento y productividad:
 
 - **[Chalablock](https://github.com/joelchala/Chalablock)** — Bloqueador de anuncios y rastreadores ligero (Manifest V3)
 - **[ChalaCookiesEdit](https://github.com/joelchala/ChalaCookiesEdit)** — Editor de cookies local con soporte CHIPS, incógnito, bloqueo e inspector JWT
