@@ -66,7 +66,42 @@ Para ejecutar todas las pruebas automatizadas:
 node tests/verify.mjs
 ```
 
-La extensión desempaquetada queda en `dist/build/ChalaReader.chromium/` y los paquetes listos para subir a tiendas quedan en `store/paquetes/ChalaReader_1.0.0.chromium.zip` y `store/paquetes/ChalaReader_1.0.0.edge.zip`. El código fuente de la extensión está en [`src/`](src/).
+La extensión desempaquetada queda en `dist/build/ChalaReader.chromium/` y los paquetes listos para subir a tiendas quedan en `store/paquetes/ChalaReader_1.0.0.chromium.zip` y `store/paquetes/ChalaReader_1.0.0.edge.zip` (con copia en `dist/build/`). El código fuente de la extensión está en [`src/`](src/).
+
+## Estructura del Proyecto
+
+```text
+ChalaReader/
+├── .github/workflows/build.yml   # Compilación, verificación y release en GitHub Actions
+├── dist/
+│   ├── README.md                 # Guía rápida de carga desde dist/
+│   ├── version                   # Versión actual (1.0.0)
+│   └── build/                    # Carpeta descomprimida y paquetes .zip generados
+├── docs/
+│   ├── index.html                # Documentación local
+│   └── README.md
+├── publish-extension/            # Utilidades de publicación para tiendas
+├── src/
+│   ├── _locales/{es,en}/         # Traducciones en español (por defecto) e inglés
+│   ├── content/
+│   │   ├── reader-engine.js      # Visor Shadow DOM, barra de herramientas, Markdown y PDF
+│   │   └── reader-theme.css      # Temas Oscuro Chala, Sepia y Claro encapsulados
+│   ├── icons/                    # Logotipo SVG e iconos PNG (16, 32, 48, 128)
+│   ├── lib/readability.js        # Motor heurístico local de extracción de artículos
+│   ├── background.js             # Service worker MV3 (toggle por clic y comando Alt+R)
+│   ├── config.js                 # Paleta Escudo Cibernético, WPM y enlaces de la Suite Chala
+│   └── manifest.json             # Manifiesto V3 (activeTab, scripting, storage)
+├── store/
+│   ├── ficha-tienda.md           # Ficha para Microsoft Edge Add-ons
+│   ├── ficha-chrome-web-store.md # Ficha para Chrome Web Store
+│   ├── logo-300x300.png          # Logo de tienda (300×300)
+│   ├── promo-440x280.png         # Mosaico promocional (440×280)
+│   ├── destacada-1400x560.png    # Banner destacado (1400×560)
+│   ├── captura-*.png             # Capturas de pantalla (1280×800)
+│   └── paquetes/                 # Paquetes .zip para Chrome Web Store y Edge Add-ons
+├── tests/verify.mjs              # Suite de 8 verificaciones integrales (DOM + VM)
+└── tools/                        # Empaquetador MV3 (make-mv3.mjs) y generador de activos
+```
 
 ## Apoyar el proyecto
 
@@ -74,6 +109,14 @@ ChalaReader es 100% gratuito y de código abierto. Si te resulta útil, puedes h
 
 ## Suite Chala y licencia
 
-ChalaReader forma parte de la **Suite Chala** de herramientas gratuitas y privadas junto a [Chalablock](https://github.com/joelchala/Chalablock), [ChalaVPN](https://github.com/joelchala/ChalaVPN), [ChalaTabs](https://github.com/joelchala/ChalaTabs) y [ChalaDev](https://github.com/joelchala/ChalaDev).
+ChalaReader forma parte de la **Suite Chala** de herramientas para navegador enfocadas en privacidad, rendimiento y productividad:
+
+- **[Chalablock](https://github.com/joelchala/Chalablock)** — Bloqueador de anuncios y rastreadores ligero (Manifest V3)
+- **[ChalaCookiesEdit](https://github.com/joelchala/ChalaCookiesEdit)** — Editor de cookies local con soporte CHIPS, incógnito, bloqueo e inspector JWT
+- **[ChalaDev](https://github.com/joelchala/ChalaDev)** — Suite de utilidades locales en el Side Panel para desarrolladores y diseñadores UI/UX
+- **[ChalaReader](https://github.com/joelchala/ChalaReader)** — Modo lectura limpio con Shadow DOM, temas visuales, Markdown, PDF y guardado offline
+- **[ChalaScrape](https://github.com/joelchala/ChalaScrape)** — Extractor visual de tablas, listas y tarjetas web a Excel (`.xlsx`) y CSV
+- **[ChalaTabs](https://github.com/joelchala/ChalaTabs)** — Gestor de pestañas en espacios de trabajo, ahorro de RAM y buscador instantáneo
+- **[ChalaVPN](https://github.com/joelchala/ChalaVPN)** — Proxy HTTPS/SOCKS5 con protección contra fugas de WebRTC
 
 Todo el proyecto se distribuye bajo la [Licencia MIT](LICENSE.txt): puedes usarlo, estudiarlo, modificarlo y redistribuirlo libremente.
