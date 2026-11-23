@@ -4,6 +4,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import vm from "node:vm";
+import { extractZipEntry } from "../tools/make-mv3.mjs";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -477,10 +478,22 @@ async function run() {
 
     const chromiumZip = path.join(ROOT, "store", "paquetes", `ChalaReader_${version}.chromium.zip`);
     const edgeZip = path.join(ROOT, "store", "paquetes", `ChalaReader_${version}.edge.zip`);
+    const firefoxZip = path.join(ROOT, "store", "paquetes", `ChalaReader_${version}.firefox.zip`);
     assert.ok(fs.existsSync(chromiumZip), `Missing package: ${chromiumZip}`);
     assert.ok(fs.existsSync(edgeZip), `Missing package: ${edgeZip}`);
+    assert.ok(fs.existsSync(firefoxZip), `Missing package: ${firefoxZip}`);
     assert.ok(fs.statSync(chromiumZip).size > 1000, "Chromium zip package appears empty");
     assert.ok(fs.statSync(edgeZip).size > 1000, "Edge zip package appears empty");
+    assert.ok(fs.statSync(firefoxZip).size > 1000, "Firefox zip package appears empty");
+
+    const firefoxRawManifest = extractZipEntry(fs.readFileSync(firefoxZip), "manifest.json");
+    assert.ok(firefoxRawManifest, "Missing manifest.json inside Firefox ZIP");
+    const firefoxManifest = JSON.parse(firefoxRawManifest.toString("utf8"));
+    assert.equal(firefoxManifest.version, version);
+    assert.equal(firefoxManifest.browser_specific_settings?.gecko?.id, "chalareader@chaladev.site");
+    assert.equal(firefoxManifest.browser_specific_settings?.gecko?.strict_min_version, "113.0");
+    assert.deepEqual(firefoxManifest.background?.scripts, ["background.js"]);
+    assert.equal(firefoxManifest.background?.service_worker, undefined);
 
     assert.ok(fs.existsSync(path.join(ROOT, "store", "ficha-tienda.md")));
     assert.ok(fs.existsSync(path.join(ROOT, "store", "ficha-chrome-web-store.md")));
