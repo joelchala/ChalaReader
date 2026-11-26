@@ -5,7 +5,7 @@ ChalaReader
 </h1>
 
 <p align="center">
-Modo lectura limpio, privado y 100% offline para Google Chrome, Microsoft Edge y Mozilla Firefox.<br>
+Modo lectura limpio, privado y 100% offline para Google Chrome, Microsoft Edge, Opera y Mozilla Firefox.<br>
 Extracción heurística local, aislamiento en Shadow DOM, exportación a Markdown, PDF y lectura guardada sin rastreadores.
 </p>
 
@@ -19,7 +19,7 @@ ChalaReader elimina anuncios, barras laterales, popups y ruido visual con un sol
 - **Autor y mantenimiento:** Joel Chala ([info@chaladev.site](mailto:info@chaladev.site))
 - **Licencia:** [MIT](LICENSE.txt)
 - **Privacidad:** [no recopila ningún dato](PRIVACY.md) · [chaladev.site/#privacidad](https://chaladev.site/#privacidad)
-- **Tiendas:** Microsoft Edge Add-ons *(en revisión)* · Mozilla Firefox Add-ons / AMO (`chalareader`, *en revisión*) · Chrome Web Store *(pendiente de cupo)*
+- **Tiendas:** Microsoft Edge Add-ons *(en revisión)* · Mozilla Firefox Add-ons / AMO (`chalareader`, *en revisión*) · [Opera Add-ons](https://addons.opera.com/developer/) *(en preparación)* · Chrome Web Store *(pendiente de cupo)*
 
 ## Características
 
@@ -37,7 +37,7 @@ ChalaReader elimina anuncios, barras laterales, popups y ruido visual con un sol
 ## Instalación
 
 1. Descarga una versión compilada desde las [versiones publicadas](https://github.com/joelchala/ChalaReader/releases) o genera la carpeta localmente (ver más abajo).
-2. **En Google Chrome / Microsoft Edge:** abre `chrome://extensions` o `edge://extensions`, activa el **Modo de desarrollador**, pulsa **Cargar descomprimida** y elige `dist/build/ChalaReader.chromium` (o `src/`).
+2. **En Google Chrome / Microsoft Edge / Opera:** abre `chrome://extensions`, `edge://extensions` u `opera://extensions`, activa el **Modo de desarrollador**, pulsa **Cargar descomprimida** y elige `dist/build/ChalaReader.chromium` (o `src/`). Para [Opera Add-ons](https://addons.opera.com/developer/) se usa el paquete `store/paquetes/ChalaReader_1.0.0.chromium.zip`.
 3. **En Mozilla Firefox (carga temporal):** abre `about:debugging#/runtime/this-firefox`, pulsa **Cargar complemento temporal…** y selecciona `store/paquetes/ChalaReader_1.0.0.firefox.zip`.
 
 ## Compilar / Empaquetar
@@ -60,6 +60,7 @@ Para regenerar los iconos PNG y piezas de tienda:
 
 ```bash
 node tools/generate-assets.mjs
+node tools/generate-promo-banner.mjs
 ```
 
 Para ejecutar las 8 verificaciones automatizadas (DOM + VM + manifiesto Firefox AMO):
@@ -70,7 +71,7 @@ npm test
 
 La extensión desempaquetada queda en `dist/build/ChalaReader.chromium/` y los paquetes listos para subir a tiendas quedan en `store/paquetes/` (con copia en `dist/build/`):
 
-- `ChalaReader_1.0.0.chromium.zip` — Chrome Web Store
+- `ChalaReader_1.0.0.chromium.zip` — Chrome Web Store y Opera Add-ons (`https://addons.opera.com/developer/`)
 - `ChalaReader_1.0.0.edge.zip` — Microsoft Edge Add-ons
 - `ChalaReader_1.0.0.firefox.zip` — Mozilla Firefox Add-ons / AMO (transforma dinámicamente el manifiesto con `browser_specific_settings.gecko.id = "chalareader@chaladev.site"`, `strict_min_version: "113.0"`, `data_collection_permissions` y `background.scripts` sin duplicar `src/`)
 
@@ -125,6 +126,7 @@ ChalaReader es 100% gratuito y de código abierto. Si te resulta útil, puedes h
 - **[ChalaReader](https://github.com/joelchala/ChalaReader)** — Modo lectura limpio con Shadow DOM, temas visuales, Markdown, PDF y guardado offline
 - **[ChalaScrape](https://github.com/joelchala/ChalaScrape)** — Extractor visual de tablas, listas y tarjetas web a Excel (`.xlsx`) y CSV
 - **[ChalaTabs](https://github.com/joelchala/ChalaTabs)** — Gestor de pestañas en espacios de trabajo, ahorro de RAM y buscador instantáneo
-- **[ChalaVPN](https://github.com/joelchala/ChalaVPN)** — Proxy HTTPS/SOCKS5 con protección contra fugas de WebRTC
+- **[ChalaVoice](https://github.com/joelchala/ChalaVoice)** — Lector en voz alta 100% local con Popup, Mini Barra Flotante, Modo Inspector y lector de libros (`.epub`, `.md`, `.txt`)
+- **[ChalaVPN](https://github.com/joelchala/ChalaVPN)** — Proxy PAC seguro por país con rotación automática y protección WebRTC
 
 Todo el proyecto se distribuye bajo la [Licencia MIT](LICENSE.txt): puedes usarlo, estudiarlo, modificarlo y redistribuirlo libremente.
